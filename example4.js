@@ -7,7 +7,7 @@ suite(function(env) {
         let page;
 
         beforeEach(async function() {
-            page = Page;
+            page = new Page(env);
             page.visit('https://library-app.firebaseapp.com/');
             // driver.get('https://library-app.firebaseapp.com/');
         });
@@ -31,7 +31,7 @@ suite(function(env) {
             let buttonlg = page.find('.btn-lg');
 
             let  input = page.find('input');
-            await page.write(input, 'ekramul@asd.com', Key.RETURN);
+            await page.write(input, 'ekramul@asd.com', '\n');
             buttonlg.click();
 
             /*await driver.wait(until.elementLocated(By.css('.alert-success')), 7000).getText().then(function (el) {
